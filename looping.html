@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Looping Programs</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            background-color: #2596be;
+            color: white;
+            margin: 20px;
+        }
+        input, button {
+            font-family: "Montserrat", sans-serif;
+            padding: 5px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Looping Programs</h2>
+    
+    <h3>Factorial (While Loop)</h3>
+    <input type="number" id="factorialInput" placeholder="Enter number">
+    <button onclick="calculateFactorial()">Calculate</button>
+    <div id="factorialResult"></div>
+    
+    <h3>Sum (Do-While Loop)</h3>
+    <input type="number" id="sumInput" placeholder="Enter number">
+    <button onclick="calculateSum()">Calculate</button>
+    <div id="sumResult"></div>
+    
+    <h3>Average (For Loop)</h3>
+    <input type="number" id="averageInput" placeholder="Enter number">
+    <button onclick="calculateAverage()">Calculate</button>
+    <div id="averageResult"></div>
+    
+    <p><button onclick="window.location.href='index.html'">Back to Main</button></p>
+
+    <script>
+        function calculateFactorial() {
+            const n = parseInt(document.getElementById('factorialInput').value);
+            if (!n || n < 0) return;
+            
+            let factorial = 1;
+            let i = 1;
+            while (i <= n) {
+                factorial *= i;
+                i++;
+            }
+            document.getElementById('factorialResult').innerHTML = `${n}! = ${factorial}`;
+        }
+
+        function calculateSum() {
+            const n = parseInt(document.getElementById('sumInput').value);
+            if (!n || n < 1) return;
+            
+            let sum = 0;
+            let i = 1;
+            do {
+                sum += i;
+                i++;
+            } while (i <= n);
+            document.getElementById('sumResult').innerHTML = `Sum = ${sum}`;
+        }
+
+        function calculateAverage() {
+            const n = parseInt(document.getElementById('averageInput').value);
+            if (!n || n < 1) return;
+            
+            let sum = 0;
+            for (let i = 1; i <= n; i++) {
+                sum += i;
+            }
+            const average = sum / n;
+            document.getElementById('averageResult').innerHTML = `Average = ${average.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
